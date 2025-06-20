@@ -9,6 +9,9 @@ const rateLimit = require('express-rate-limit');
 const connectDB = require('./src/config/database');
 const { errorHandler, notFound } = require('./src/middlewares/errorHandler');
 
+// Import routes
+const authRoutes = require('./src/routes/authRoutes');
+const taskRoutes = require('./src/routes/taskRoutes');
 
 // Initialize Express app
 const app = express();
@@ -67,6 +70,9 @@ app.get('/health', (req, res) => {
   });
 });
 
+// API routes
+app.use('/api/auth', authLimiter, authRoutes);
+app.use('/api/tasks', taskRoutes);
 
 // Welcome endpoint
 app.get('/', (req, res) => {

@@ -33,11 +33,6 @@ const validateTaskCreation = [
     .optional()
     .isIn(['pending', 'in-progress', 'completed'])
     .withMessage('Status must be one of: pending, in-progress, completed'),
-  
-  body('priority')
-    .optional()
-    .isIn(['low', 'medium', 'high'])
-    .withMessage('Priority must be one of: low, medium, high'),
 ];
 
 /**
@@ -77,11 +72,6 @@ const validateTaskUpdate = [
     .optional()
     .isIn(['pending', 'in-progress', 'completed'])
     .withMessage('Status must be one of: pending, in-progress, completed'),
-  
-  body('priority')
-    .optional()
-    .isIn(['low', 'medium', 'high'])
-    .withMessage('Priority must be one of: low, medium, high'),
 ];
 
 /**
