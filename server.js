@@ -25,7 +25,7 @@ app.use(helmet());
 // Rate limiting
 const limiter = rateLimit({
   windowMs: 5 * 60 * 1000, // 5 minutes
-  max: 50, // limit each IP to 50 requests per windowMs for auth endpoints
+  max: 500, // limit each IP to 50 requests per windowMs for auth endpoints
   message: {
     success: false,
     message: 'Too many requests from this IP, please try again later.'

@@ -7,13 +7,13 @@ const Task = require('../models/Task');
  */
 const createTask = async (req, res) => {
   try {
-    const { taskName, description, dueDate, status } = req.body;
+    const { taskName, description, dueDate } = req.body;
 
     const task = new Task({
       taskName,
       description,
       dueDate,
-      status,
+      status:'pending',
       userId: req.user._id
     });
 
@@ -73,6 +73,11 @@ const getTasks = async (req, res) => {
           totalTasks,
           hasNext: parseInt(page) < totalPages,
           hasPrev: parseInt(page) > 1
+        },
+        user: {
+          id: req.user._id,
+          email: req.user.email,
+          createdAt: req.user.createdAt
         }
       }
     });
